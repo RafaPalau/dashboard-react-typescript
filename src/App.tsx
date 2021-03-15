@@ -4,7 +4,7 @@ import Routes from "./routes";
 import GlobalStyles from "./styles/GlobalStyles";
 
 import dark from "./styles/themes/dark";
-import light from "./styles/themes/light";
+// import light from "./styles/themes/light";
 
 const App: React.FC = () => {
   return (
