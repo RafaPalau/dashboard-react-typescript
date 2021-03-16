@@ -14,6 +14,7 @@ import sadImg from "../../assets/sad.svg";
 import grinningImg from "../../assets/grinning.svg";
 import { Container, Content } from "./styles";
 import PieChartBox from "../../components/PieChartBox";
+import HistoryBox from "../../components/HistoryBox";
 
 const Dashboard: React.FC = () => {
   const [monthSelected, setMonthSelected] = useState<number>(
@@ -139,6 +140,59 @@ const Dashboard: React.FC = () => {
     return data;
   }, [totalGains, totalExpenses]);
 
+  const historyData = useMemo(() => {
+    return listOfMonth
+      .map((_, month) => {
+        let amountEntry = 0;
+        gains.forEach((gain) => {
+          const date = new Date(gain.date);
+          const gainMonth = date.getMonth();
+          const gainYear = date.getFullYear();
+
+          if (gainMonth === month && gainYear === yearSelected) {
+            try {
+              amountEntry += Number(gain.amount);
+            } catch (error) {
+              throw new Error(
+                "amountEntry is avalid. amountEntry must be valid number"
+              );
+            }
+          }
+        });
+        let amountOutPut = 0;
+        expenses.forEach((expense) => {
+          const date = new Date(expense.date);
+          const expenseMonth = date.getMonth();
+          const expenseYear = date.getFullYear();
+
+          if (expenseMonth === month && expenseYear === yearSelected) {
+            try {
+              amountOutPut += Number(expense.amount);
+            } catch (error) {
+              throw new Error(
+                "amountEntry is avalid. amountEntry must be valid number"
+              );
+            }
+          }
+        });
+        return {
+          monthNumber: month,
+          month: listOfMonth[month].substr(0, 3),
+          amountEntry,
+          amountOutPut,
+        };
+      })
+      .filter((item) => {
+        const currentMonth = new Date().getMonth();
+        const currentYear = new Date().getFullYear();
+
+        return (
+          (yearSelected === currentYear && item.monthNumber <= currentMonth) ||
+          yearSelected < currentYear
+        );
+      });
+  }, [yearSelected]);
+
   const handleMonthSelected = (month: string) => {
     try {
       const parseMonth = Number(month);
@@ -199,8 +253,11 @@ const Dashboard: React.FC = () => {
           footerText={message.footerText}
           icon={message.icon}
         />
-        <PieChartBox
-        data={relationExpensesVersusGains}
+        <PieChartBox data={relationExpensesVersusGains} />
+        <HistoryBox
+          data={historyData}
+          lineColorAmountEntry="#b87c0c"
+          lineColorAmountOutPut="#ee5252"
         />
       </Content>
     </Container>
