@@ -77,4 +77,11 @@ export default [
     frequency: "recorrente",
     date: "2020-07-10",
   },
+  {
+    description: "Salário",
+    amount: "60.00",
+    type: "entrada",
+    frequency: "recorrente",
+    date: "2021-04-15",
+  },
 ];

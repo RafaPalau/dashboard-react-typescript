@@ -343,4 +343,11 @@ export default [
     frequency: "eventual",
     date: "2020-07-19",
   },
+  {
+    description: "Pizza",
+    amount: "60.00",
+    type: "saída",
+    frequency: "eventual",
+    date: "2021-04-15",
+  },
 ];
