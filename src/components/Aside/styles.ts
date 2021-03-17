@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Container = styled.div`
   grid-area: AS;
   background-color: ${(props) => props.theme.colors.secondary};
@@ -36,7 +35,25 @@ export const MenuItemLink = styled.a`
   &:hover {
     opacity: 0.7;
   }
-  > svg{
+  > svg {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+`;
+
+export const MenuItemButton = styled.button`
+  color: ${(props) => props.theme.colors.info};
+  font-size: 16px;
+  border: none;
+  background: none;
+  margin: 7px 0;
+  transition: opacity 0.3s;
+  display: flex;
+  align-items: center;
+  &:hover {
+    opacity: 0.7;
+  }
+  > svg {
     font-size: 18px;
     margin-right: 5px;
   }
