@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 interface ITagProps {
   color: string;
 }
@@ -21,21 +20,21 @@ export const Container = styled.li`
     opacity: 0.7;
     transform: translateX(10px);
   }
-  > div{
+  > div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-padding-left: 10px;
+    padding-left: 10px;
   }
   > div span {
     font-weight: 500;
     font-size: 18px;
   }
- `;
+`;
 export const Tag = styled.div<ITagProps>`
   width: 13px;
   height: 60%;
   position: absolute;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   left: 0;
 `;
