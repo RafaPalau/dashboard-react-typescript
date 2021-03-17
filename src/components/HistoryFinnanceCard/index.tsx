@@ -13,8 +13,7 @@ const HistoryFinnanceCard: React.FC<IHistoryFinnanceCard> = ({
   title,
   subtitle,
   amount,
-}) => {
-  return (
+}) => (
     <Container >
       <Tag color={tagColor} />
       <div>
@@ -24,6 +23,5 @@ const HistoryFinnanceCard: React.FC<IHistoryFinnanceCard> = ({
       <h3>{amount}</h3>
     </Container>
   );
-};
 
 export default HistoryFinnanceCard;
