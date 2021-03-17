@@ -31,8 +31,7 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
   data,
   lineColorAmountEntry,
   lineColorAmountOutPut,
-}) => {
-  return (
+}) =>  (
     <Container>
       <Header>
         <h2>Histórico de Saldo</h2>
@@ -80,6 +79,5 @@ const HistoryBox: React.FC<IHistoryBoxProps> = ({
       </ChartContainer>
     </Container>
   );
-};
 
 export default HistoryBox;

@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-anonymous-default-export
+// Trocar tema
 export default {
   title: "light",
 
