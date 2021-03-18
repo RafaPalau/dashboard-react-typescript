@@ -7,7 +7,7 @@ import {
   SideRight,
 } from "./styles";
 
-import { PieChart, Pie, ResponsiveContainer, Cell } from "recharts";
+import { PieChart, Pie,Cell, ResponsiveContainer  } from "recharts";
 
 interface IPieChartProps {
   data: {

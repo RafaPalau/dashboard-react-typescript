@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import Toggle from "../Toggle";
+
 import emojis from "../../utils/emojis";
 import { Container, Profile, Welcome, UserName } from "./styles";
 
@@ -8,16 +9,16 @@ import { useTheme } from "../../hooks/theme";
 const MainHeader: React.FC = () => {
   const { toggleTheme, theme } = useTheme();
 
- // Trocar tema
+  // Trocar tema
   const [darkTheme, setDarkTheme] = useState(() =>
     theme.title === "dark" ? true : false
   );
 
   // Trocar tema
-  const handleChangeTheme = () =>{
-    setDarkTheme(!darkTheme)
-    toggleTheme()
-  }
+  const handleChangeTheme = () => {
+    setDarkTheme(!darkTheme);
+    toggleTheme();
+  };
 
   const emoji = useMemo(() => {
     const indice = Math.floor(Math.random() * emojis.length);
@@ -27,11 +28,10 @@ const MainHeader: React.FC = () => {
     <Container>
       {/* Trocar tema */}
       <Toggle
-      checked={darkTheme}
-      labelLeft="Light"
-      labelRight="Dark"
-      onChange={handleChangeTheme}
-      
+        checked={darkTheme}
+        labelLeft="Light"
+        labelRight="Dark"
+        onChange={handleChangeTheme}
       />
 
       <Profile>

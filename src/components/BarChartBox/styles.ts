@@ -3,7 +3,20 @@ import styled, { keyframes } from "styled-components";
 interface ILegendProps {
   color: string;
 }
+const animate = keyframes`
+0% {
+transform: translateX(100px);
+opacity: 0;
+}
+50%{
+  opacity: .3;
+}
+100%{
+  transform: translateX(0px);
+opacity: 1;
+}
 
+`;
 export const Container = styled.div`
   width: 48%;
   min-height: 260px;
@@ -16,6 +29,7 @@ export const Container = styled.div`
   border-radius: 7px;
 
   display: flex;
+  animation: ${animate} .5s;
 
   @media (max-width: 1200px) {
     display: flex;

@@ -1,8 +1,23 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 interface ILegendProps {
   color: string;
 }
+
+const animate = keyframes`
+0% {
+transform: translateX(100px);
+opacity: 0;
+}
+50%{
+  opacity: .3;
+}
+100%{
+  transform: translateX(0px);
+opacity: 1;
+}
+
+`;
 
 export const Container = styled.div`
   width: 48%;
@@ -12,6 +27,8 @@ export const Container = styled.div`
   color: ${(props) => props.theme.colors.white};
   border-radius: 7px;
   display: flex;
+
+  animation: ${animate} 0.5s;
 
   @media (max-width: 770px) {
     display: flex;
@@ -27,7 +44,7 @@ export const SideLeft = styled.aside`
   @media (max-width: 1345px) {
     padding: 0 15px 5px;
     margin-bottom: 7px;
-    >h2{
+    > h2 {
       margin-top: 15px;
       margin-bottom: 7px;
     }
@@ -40,7 +57,22 @@ export const SideLeft = styled.aside`
 `;
 export const LegendContainer = styled.ul`
   list-style: none;
-  max-height: 175px;
+  height: 175px;
+  padding-right: 15px;
+  overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: ${(props) => props.theme.colors.secondary};
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: ${(props) => props.theme.colors.tertiary};
+  }
 
   @media (max-width: 1345px) {
     display: flex;
@@ -51,7 +83,7 @@ export const Legend = styled.li<ILegendProps>`
   display: flex;
   align-items: center;
   margin-bottom: 7px;
-  font-size: 14px;
+
   > div {
     background-color: ${(props) => props.color};
     width: 40px;
@@ -66,7 +98,7 @@ export const Legend = styled.li<ILegendProps>`
     margin-left: 5px;
   }
 
-  @media (max-width: 1345px) {
+  @media (max-width: 145px) {
     font-size: 14px;
     margin: 3px 0;
 
